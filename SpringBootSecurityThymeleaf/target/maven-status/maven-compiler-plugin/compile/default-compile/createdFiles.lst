@@ -1,0 +1,10 @@
+net\codejava\repository\ProductRepository.class
+net\codejava\model\Product.class
+net\codejava\model\Usuario.class
+net\codejava\model\Role.class
+net\codejava\security\WebSecurityConfig.class
+net\codejava\security\ImplementsUserDetailsService.class
+net\codejava\repository\UsuarioRepository.class
+net\codejava\controller\AppController.class
+net\codejava\repository\ProductService.class
+net\codejava\AppMain.class
