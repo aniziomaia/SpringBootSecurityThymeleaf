@@ -2,10 +2,10 @@ package net.codejava.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import net.codejava.model.Usuario;
+import net.codejava.model.User;
 
 
-public interface UsuarioRepository extends CrudRepository<Usuario, String>{
+public interface UsuarioRepository extends CrudRepository<User, String>{
 
-	Usuario findByLogin(String login);
+	User findByLogin(String login);
 }

@@ -21,15 +21,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.csrf().disable().authorizeRequests()
-		.antMatchers(HttpMethod.GET,  "/").permitAll()//pagina index liberada para todos
-		.antMatchers(HttpMethod.GET,  "/new").hasRole("ADMIN")//metodo do controller restringido
-		.antMatchers(HttpMethod.POST, "/new").hasRole("ADMIN")//metodo do controller restringido
-		.antMatchers(HttpMethod.GET,  "/save").hasRole("ADMIN")//metodo do controller restringido
-		.antMatchers(HttpMethod.POST, "/save").hasRole("ADMIN")//metodo do controller restringido
-		.antMatchers(HttpMethod.GET,  "/edit").hasRole("ADMIN")//metodo do controller restringido
-		.antMatchers(HttpMethod.POST, "/edit").hasRole("ADMIN")//metodo do controller restringido
-		.antMatchers(HttpMethod.GET,  "/delete").hasRole("ADMIN")//metodo do controller restringido
-		.antMatchers(HttpMethod.POST, "/delete").hasRole("ADMIN")//metodo do controller restringido
+		.antMatchers(HttpMethod.GET,  "/**").permitAll()//pagina index liberada para todos
+		.antMatchers(HttpMethod.POST,  "/**").permitAll()//pagina index liberada para todos
+//		.antMatchers(HttpMethod.GET,  "/new").hasRole("ADMIN")//metodo do controller restringido
+//		.antMatchers(HttpMethod.POST, "/new").hasRole("ADMIN")//metodo do controller restringido
+//		.antMatchers(HttpMethod.GET,  "/save").hasRole("ADMIN")//metodo do controller restringido
+//		.antMatchers(HttpMethod.POST, "/save").hasRole("ADMIN")//metodo do controller restringido
+//		.antMatchers(HttpMethod.GET,  "/edit").hasRole("ADMIN")//metodo do controller restringido
+//		.antMatchers(HttpMethod.POST, "/edit").hasRole("ADMIN")//metodo do controller restringido
+//		.antMatchers(HttpMethod.GET,  "/delete").hasRole("ADMIN")//metodo do controller restringido
+//		.antMatchers(HttpMethod.POST, "/delete").hasRole("ADMIN")//metodo do controller restringido
 		//.antMatchers(HttpMethod.GET,  "/cadastrarEvento").hasAnyRole("ADMIN")//metodo do controller restringido
 		//.antMatchers(HttpMethod.POST, "/cadastrarEvento").hasAnyRole("ADMIN")//metodo do controller restringido
 		.anyRequest().authenticated()
