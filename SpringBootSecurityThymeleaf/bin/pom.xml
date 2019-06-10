@@ -4,14 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.codejava</groupId>
-	<artifactId>ProductManager</artifactId>
+	<artifactId>SpringBootSecurityThymeleaf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<!-- usado para o toncat -->
 	<packaging>jar</packaging> 
 	 <!-- usado para o JBOSS
 	<packaging>war</packaging> -->
 
-	<name>eventosapp</name>
+	<name>SpringBootSecurityThymeleaf</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

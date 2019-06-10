@@ -1,4 +1,23 @@
-COMO TESTAR
+CONFIGURACOES
 
-1-USAR A URL http://localhost:8080/
-2-LOGIN root E SENHA root
+1-NAO PRECISA INSTALAR UM CONTANINER DEVIDO O USO DO SPRING BOOT
+2-EXECUTAR A APLICAÇÃO NA CLASSE AppMain NO METODO MAIN
+3-FUNCCIONA COM O BANCO DE DADOS POSTGREE
+3-CONFIGURAÇÃO DE BANCO NA CLASSE DataConfiguration
+4-BASTA CRIAR O BANCO DE DADOS E O SISTEMA VAI CRIA AS TABELAS E O RELACIONAMENTO
+6-PAGINA INICIAL URL http://localhost:8080/
+7-PARA TESTAR O WEBSERVICE PARA ACESSAR O LINK http://localhost:8080/swagger-ui.html, DEPOS CLICAR NA OPÇÃO SHOU/HIDE
+8-URLS DO WEBSERVICE CASO QUEIRA USAR EM OUTA FERRAMENTA DE TESTE:
+   http://localhost:8080/livro/list
+   http://localhost:8080/livro/save
+   http://localhost:8080/livro/update
+   http://localhost:8080/livro/delete
+   
+9- AUTORIZACAO E AUTENTICACAO ESTAO DESATIVADAS, MAS DE DER ALGUM PROBLEMA SEGUE ABAIXO O SQL
+10-O NOME DO BANCO QUE DEVE SER CRIADO É productmanager
+11- AUTENTICACAO É: login root e senha root, MAS EU IMAGINO QUE NAO VAI PRECISAR
+
+insert into tb_users_roles values('root','ROLE_ADMIN')
+insert into tb_user values('root','Anizio Maia','$2a$10$iMumFq7f4uofsnxd3JOUJe4pbSmrbevGkYauIYKs9sMVphJAzCwTq');
+insert into tb_role values('ROLE_ADMIN')
+

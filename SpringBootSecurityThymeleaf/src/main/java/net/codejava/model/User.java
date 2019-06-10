@@ -4,33 +4,38 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-public class Usuario implements UserDetails, Serializable{
+@Table(name = "tb_user")
+public class User implements UserDetails, Serializable{
 	
 private static final long serialVersionUID = 1L;
 	
 	@Id
+	@Column(name = ("login"))
 	private String login;
 	
-	private String nomeCompleto;
+	@NotBlank
+	private String name;
 	
-	@NotEmpty
-	private String senha;
+	@NotBlank
+	private String password;
 	
 	@ManyToMany
-	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(
-	           name = "usuario_id", referencedColumnName = "login"), 
-	           inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "nomeRole")) 
+	@JoinTable(name = "tb_users_roles", joinColumns = @JoinColumn(
+	           name = "id_user", referencedColumnName = "login"), 
+	           inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "nameRole")) 
     private List<Role> roles;
 
 	public String getLogin() {
@@ -41,28 +46,28 @@ private static final long serialVersionUID = 1L;
 		this.login = login;
 	}
 
-	public String getNomeCompleto() {
-		return nomeCompleto;
-	}
-
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	public List<Role> getRoles() {
 		return roles;
 	}
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
@@ -74,7 +79,7 @@ private static final long serialVersionUID = 1L;
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return this.senha;
+		return this.password;
 	}
 
 	@Override

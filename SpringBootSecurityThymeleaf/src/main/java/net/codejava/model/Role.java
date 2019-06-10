@@ -2,44 +2,54 @@ package net.codejava.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 
 @SuppressWarnings("serial")
 @Entity
+@Table(name = "tb_role")
 public class Role implements GrantedAuthority{
 
 	@Id
-	private String nomeRole;
+	@Column(name = "nameRole")
+	private String nameRole;
 
 	@ManyToMany(mappedBy = "roles")
-    private List<Usuario> usuarios;
+    private List<User> usuarios;
 	
-	public String getNomeRole() {
-		return nomeRole;
+	public String getNameRole() {
+		return nameRole;
 	}
 
-	public void setNomeRole(String nomeRole) {
-		this.nomeRole = nomeRole;
+	public void setNameRole(String nameRole) {
+		this.nameRole = nameRole;
 	}
-	
-	public List<Usuario> getUsuarios() {
+
+	public List<User> getUsuarios() {
 		return usuarios;
 	}
 
-	public void setUsuarios(List<Usuario> usuarios) {
+	public void setUsuarios(List<User> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public List<User> getUsers() {
+		return usuarios;
+	}
+
+	public void setUser(List<User> usuarios) {
 		this.usuarios = usuarios;
 	}
 
 	@Override
 	public String getAuthority() {
 		// TODO Auto-generated method stub
-		return this.nomeRole;
+		return this.nameRole;
 	}
 	
 	
